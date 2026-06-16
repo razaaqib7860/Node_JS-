@@ -1,0 +1,22 @@
+{
+  "name": "node_js-",
+  "version": "1.0.0",
+  "description": "module and hello world",
+  "homepage": "https://github.com/razaaqib7860/Node_JS-#readme",
+  "bugs": {
+    "url": "https://github.com/razaaqib7860/Node_JS-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razaaqib7860/Node_JS-.git"
+  },
+  "license": "ISC",
+  "author": "Raza",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hello.js"
+  },
+  "keywords": []
+}
