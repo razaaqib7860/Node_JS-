@@ -18,5 +18,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node hello.js"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "url": "^0.11.4"
+  }
 }
