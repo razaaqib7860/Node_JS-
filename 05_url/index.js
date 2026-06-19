@@ -4,7 +4,7 @@ const fs = require("fs"); // import fs functionality from nodejs core module
 const url = require("url"); // import url functionality from nodejs core module
 
 
- const server =http.createServer((req,res)=>{
+ const server =http.createServer((req,res)=>{ 
     const data=`${new Date().toLocaleString()}: ${req.url}: New Request Received!\n`;
     // fs.writeFile("server.log",data,(err)=>{
     //     res.end("Hello World 3 !");
