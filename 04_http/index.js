@@ -15,7 +15,7 @@ const myserver = http.createServer((req,res)=>{
  }); 
 
  const server3 =http.createServer((req,res)=>{
-    const data=`${new Date().toLocaleString()}: ${req.url}: New Request Received!\n`;
+    const data=`${new Date().toLocaleString()}: ${req.url}: / ${req.method} New Request Received!\n`;
     fs.appendFile("server3.log",data,(err)=>{
         switch(req.url){                       //(MulitRoute): multiple routes can be handled using switch case, we can also use if else statements to handle multiple routes, but switch case is more efficient and easier to read and maintain
             case "/":                          // it will handle the request made to the root route (/) and respond with "Home Page"
@@ -28,6 +28,13 @@ const myserver = http.createServer((req,res)=>{
                 break;
             case "/contact":                     // it will handle the request made to the contact route (/contact) and respond with "Contact Page"
                 res.end("Contact Page");
+                break;
+            case "/signup":                     // it will handle the request made to the signup route (/signup) and respond with "Signup Page"
+                if(req.method==="POST"){            // it will check if the request method is POST, if it is POST then it will respond with "Signup Successful!" otherwise it will respond with "Signup Page"
+                    res.end("Signup Successful!");
+                }else{
+                    res.end("Signup Page");
+                }
                 break;
             default:                             // it will handle the request made to any other route and respond with "Page Not Found"
                 res.end("Page Not Found");
