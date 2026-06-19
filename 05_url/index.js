@@ -1,8 +1,8 @@
 const http = require("http"); // import http functionality from nodejs core module
 const fs = require("fs"); // import fs functionality from nodejs core module
-
 //npm i url // install url module from npm
 const url = require("url"); // import url functionality from nodejs core module
+
 
  const server =http.createServer((req,res)=>{
     const data=`${new Date().toLocaleString()}: ${req.url}: New Request Received!\n`;
