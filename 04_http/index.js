@@ -31,6 +31,7 @@ const myserver = http.createServer((req,res)=>{
                 break;
             case "/signup":                     // it will handle the request made to the signup route (/signup) and respond with "Signup Page"
                 if(req.method==="POST"){            // it will check if the request method is POST, if it is POST then it will respond with "Signup Successful!" otherwise it will respond with "Signup Page"
+                    //DB Query
                     res.end("Signup Successful!");
                 }else{
                     res.end("Signup Page");
