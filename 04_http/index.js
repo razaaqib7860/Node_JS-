@@ -14,6 +14,7 @@ const myserver = http.createServer((req,res)=>{
     res.end("Hello World 2 !");});
  }); 
 
+ 
  const server3 =http.createServer((req,res)=>{
     const data=`${new Date().toLocaleString()}: ${req.url}: / ${req.method} New Request Received!\n`;
     fs.appendFile("server3.log",data,(err)=>{
@@ -53,3 +54,32 @@ myserver.listen(3001,()=>{// it will start the server and listen on port 3001
 server3.listen(3002,()=>{
     console.log("Server 3 is running on port 3002");
 });
+
+
+
+/*#####  http methods #####*/ 
+//http have 5 methods
+
+// GET 
+// its used to retrieve data from the server, 
+// it is the default method when we make a request to the server, 
+// we can also use GET method to send data to the server using query parameters in the url.
+
+//example: 
+
+// POST 
+// its used to send data to the server,
+// it is used when we want to create a new resource on the server,
+// it is used when we want to send data to the server using the request body.
+
+// PUT
+// its used to update an existing resource on the server,
+// it is used when we want to update an existing resource on the server using the request body.
+
+// PATCH
+// its used to update an existing resource on the server,
+// it is used when we want to update an existing resource on the server using the request body, but it is used when we want to update only a part of the resource, not the whole resource.
+
+// DELETE
+// its used to delete an existing resource on the server,
+// it is used when we want to delete an existing resource on the server.

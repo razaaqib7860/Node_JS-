@@ -1,0 +1,39 @@
+// Version
+
+//right now our express version is: "^5.2.1"
+
+// "^5.2.1"
+
+// 1st part -> 5
+// 2nd part -> 2
+//3rd part -> 1
+// symbol part -> ^
+
+// Whats its Means, let decode it 
+
+// 3rd part (last part) - Minor Fixes (Optional)
+// Latest -> ".1"            // as of june/21/26
+
+// 2nd part (middle part) - Recommended Bug Fix (Security Fix )
+// Latest -> ".2"
+
+// 1st part (First part) - Major Release/ Breaking Update (May Break your code)
+// Latest -> "5."
+
+
+// now symbol part  (semver)
+// so there are many symbol used and each have there own meaning
+you can check this doc :https://docs.npmjs.com/cli/v11/configuring-npm/package-json#config
+
+// like :"^5.2.1"
+// ^version : "Compatible with version" -> means its fix the version 1st part , but the 2nd and 3rd part can update timely
+// in mathematically=> version belongs to [5.2.1 , <6.0.0};
+
+like : "~5.2.1"
+// ~version : "Approximately equivalent to version" -> means its fix the version 1st and 2nd part both
+// in mathematically=> version belongs to [5.2.1 , <5.3.0};
+
+
+// by default express install latest version for the first time (until you fix it)
+// you can install the version you want to by 
+//### npm install express@5.1.1 
