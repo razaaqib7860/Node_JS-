@@ -1,0 +1,14 @@
+REST API - JSON
+
+GET /users - List all users - TASK
+
+GET /users/1 - GET the user with ID 1 
+GET /users/1 - GET the user with ID 2 
+
+POST /users - Create new user
+
+PATCH /user/id - Edit the user with ID 1
+
+DELETE /users/1 - DELETE the user with ID 
+
+we use mockaroo.com for dummy/fake json data and id;
