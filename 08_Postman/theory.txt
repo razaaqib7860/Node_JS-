@@ -1,0 +1,2 @@
+//POSTMAN : Its the platform to test , build , integerate api..
+// basically browser by default use GET http method, so we can use POSTMAN for POST,PUT,PATCH & DELETE;

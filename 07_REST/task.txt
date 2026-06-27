@@ -1,14 +1,23 @@
 REST API - JSON
 
-GET /users - List all users - TASK
+GET /users - list all the users // send data in HTML form(HTML DOC.RENDER)
+GET /api/users - List all users //send data in json form
 
-GET /users/1 - GET the user with ID 1 
-GET /users/1 - GET the user with ID 2 
+GET /api/users/1 - GET the user with ID 1  // we cant take input like this right?.., 
+GET /api/users/1 - GET the user with ID 2   //as here id is variable
 
-POST /users - Create new user
+so we use
+### Dyanimc Path Parameters:
 
-PATCH /user/id - Edit the user with ID 1
+Get /api/users/:id                               different from   (Get /api/users/id);
+:id => Variable | dynamic
+we have to GET id:
+const id = Number(req.params.id);
 
-DELETE /users/1 - DELETE the user with ID 
+POST /api/users - Create new user
+
+PATCH /api/user/id - Edit the user with ID 1
+
+DELETE /api/users/1 - DELETE the user with ID 
 
 we use mockaroo.com for dummy/fake json data and id;
