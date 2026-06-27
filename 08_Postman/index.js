@@ -13,7 +13,8 @@ app.get("/api/users", (req, res) => {
 // Use Postman or another API client to send POST requests with a JSON body.
 // Example body: { "first_name": "Alice", "last_name": "Smith", "email": "alice@example.com" }
 app.post("/api/users", (req, res) => {
-  // const newUser = req.body;
+  const newUser = req.body;
+  console.log(newUser);
   return res.json({ status: "pending"});
 });
 
@@ -35,4 +36,4 @@ app.route("/api/users/:id")
     return res.json({ status: "pending", message: "Delete user logic goes here" });
   });
 
-app.listen(8000, () => console.log("Server started at http://localhost:8000"));
+app.listen(3000, () => console.log("Server started at http://localhost:3000"));
