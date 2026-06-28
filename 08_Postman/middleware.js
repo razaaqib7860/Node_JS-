@@ -1,24 +1,32 @@
 const express = require("express");
 const app = express();
 const fs= require("fs");
-
 const users = require("./MOCK_DATA.json");
-
-app.use(express.json());
 
 // for use POSTMAN the PORT should be PUBLIC
 
-// Task 1: List all users as JSON
-// Example: GET http://localhost:8000/api/users
-app.get("/api/users", (req, res) => {
-  res.json(users);
-});
 
 //MIDDLEWARE : 
 app.use(express.urlencoded({extended:false}));
 
-// Use Postman or another API client to send POST requests with a JSON body.
-// Example body: { "first_name": "Alice", "last_name": "Smith", "email": "alice@example.com" }
+app.use((req,res,next)=>{
+  console.log("hello from middleware 1")
+  //return res.json("mw1 end")       // the mw1 return the output and request cant exucute furture
+  next();    //it will call the next function, means allwing the request to furture code to exucute
+             // if you dont call next function BY DEFAULT it will call the code just below them if no response trigger
+})
+
+app.use((req,res,next)=>{
+  console.log("hello from middleware 1")
+  //return res.json("mw2 end") // mw2 end and return the response
+  next();// send request furture
+})
+
+
+//ROUTES
+app.get("/api/users", (req, res) => {
+  res.json(users);
+});
 
 app.post("/api/users", (req, res) => { 
   const newUser = { id: users.length + 1, ...req.body };
@@ -30,9 +38,8 @@ app.post("/api/users", (req, res) => {
   });
 });
 
+app.route("/api/users/:id")
 
-// Use app.route() multiple HTTP methods to group GET, PATCH, DELETE handlers for the same resource path.
- app.route("/api/users/:id")
   .get((req, res) => {
     const id = Number(req.params.id);
     const user = users.find(user => user.id === id);
@@ -40,7 +47,6 @@ app.post("/api/users", (req, res) => {
   })
 
   .patch((req, res) => {
-
     return res.json({ status: "pending", message: "Update user logic goes here" });
   })
 
