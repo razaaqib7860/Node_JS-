@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
 const users = require("./MOCK_DATA.json");
-
+const fs= require("fs");
 app.use(express.urlencoded({extended: false}));
 
-app.post("/api/users", (req, res) => {
+app.post("/", (req, res) => {
   const newUser = req.body;
-  console.log(newUser);
-  return res.json({ status: "pending"});
+  users.push({id:users.length+1 , ...newUser});
+  fs.writeFile('./MOCK_DATA.json', JSON.stringify(users),(err,data)=>{
+      return res.json({ status: "pending"});
+  })
 });
 
-app.listen(9000);
+app.listen(6000);
