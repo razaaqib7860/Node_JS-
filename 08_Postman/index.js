@@ -4,18 +4,17 @@ const fs= require("fs");
 
 const users = require("./MOCK_DATA.json");
 
-app.use(express.json());
+//########### for use POSTMAN the PORT should be PUBLIC. ###########//
 
-// for use POSTMAN the PORT should be PUBLIC
+//MIDDLEWARE : 
+app.use(express.urlencoded({extended:false}));
+//app.use(express.json());
 
 // Task 1: List all users as JSON
 // Example: GET http://localhost:8000/api/users
 app.get("/api/users", (req, res) => {
   res.json(users);
 });
-
-//MIDDLEWARE : 
-app.use(express.urlencoded({extended:false}));
 
 // Use Postman or another API client to send POST requests with a JSON body.
 // Example body: { "first_name": "Alice", "last_name": "Smith", "email": "alice@example.com" }

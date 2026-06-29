@@ -12,8 +12,8 @@ app.use(express.urlencoded({extended:false}));
 app.use((req,res,next)=>{
   console.log("hello from middleware 1")
   //return res.json("mw1 end")       // the mw1 return the output and request cant exucute furture
-  next();    //it will call the next function, means allwing the request to furture code to exucute
-             // if you dont call next function BY DEFAULT it will call the code just below them if no response trigger
+  next();                            //it will call the next function, means allwing the request to furture code to exucute
+                                     // if you dont call next function BY DEFAULT it will call the code just below them if no response trigger
 })
 
 app.use((req,res,next)=>{
