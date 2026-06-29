@@ -15,12 +15,12 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node hello.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "dependencies": {
     "express": "^5.2.1",
+    "nodemon": "^3.1.14",
     "url": "^0.11.4"
   }
 }
