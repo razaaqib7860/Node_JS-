@@ -13,7 +13,7 @@ app.use((req,res,next)=>{
   console.log("hello from middleware 1")
   //return res.json("mw1 end")       // the mw1 return the output and request cant exucute furture
   next();                            //it will call the next function, means allwing the request to furture code to exucute
-                                     // if you dont call next function BY DEFAULT it will call the code just below them if no response trigger
+     //next();                                // if you dont call next function BY DEFAULT it will call the code just below them if no response trigger
 })
 
 app.use((req,res,next)=>{
@@ -33,29 +33,8 @@ app.post("/api/users", (req, res) => {
   console.log(newUser);
   users.push(newUser);
   fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
-    if (err) return res.status(500).json({ status: "error", message: "Unable to save user" });
     return res.json({ status: "success", id: users.length+1 });
   });
 });
-
-app.route("/api/users/:id")
-
-  .get((req, res) => {
-    const id = Number(req.params.id);
-    const user = users.find(user => user.id === id);
-    res.json(user);
-  })
-
-  .patch((req, res) => {
-    return res.json({ status: "pending", message: "Update user logic goes here" });
-  })
-
-  .delete((req, res) => {
-    const id = Number(req.params.id);
-    const idx = users.findIndex(user => user.id === id);
-    if (idx === -1) return res.status(404).json({ status: "error", message: "User not found" });
-    users.splice(idx, 1); // DELETE 1 element from idx 
-    return res.json({ status: "done", message: "User deleted" });
-  });
 
 app.listen(3000, () => console.log("Server started at http://localhost:3000"));
