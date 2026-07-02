@@ -1,0 +1,11 @@
+MONGOOSE
+
+Schema - Define the structure
+   using Schema - we make a MODEL
+   using Model - we do CRUD operations
+
+   // CRUD operations
+      C - Create
+      R - Read
+      U - Update
+      D - Delete
