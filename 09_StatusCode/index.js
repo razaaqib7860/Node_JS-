@@ -11,7 +11,12 @@ app.use(express.urlencoded({extended:false}));
 app.post("/api/users", (req, res) => { 
     const newUser = { id: users.length + 1, ...req.body };
 
-  if(!newUser || !newUser.first_name || !newUser.last_name || !newUser.email || !newUser.gender|| !newUser.job_title){
+  if( !newUser ||
+      !newUser.first_name ||
+      !newUser.last_name ||
+      !newUser.email || 
+      !newUser.gender||
+      !newUser.job_title){
    return res.status(400).json({error:"All Fields are requried"}); // shows error:400 Bad Request
 
   }

@@ -6,8 +6,7 @@ const router = express.Router();
 // you have to access the functions like this: router.get("/api/users", handleGetAllUsers);
 
 //OR
-const userController=require("../controllers/userController");
-const { HandleCreateUser } = require("../controllers/user");
+const userController=require("../controllers/user"); 
 //you have to access the functions of userController like this: router.get("/api/users", userController.handleGetAllUsers);
 
 //ROUTERS:

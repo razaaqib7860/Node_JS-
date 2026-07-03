@@ -3,7 +3,7 @@ const app = express();
 const users = require("./MOCK_DATA.json");
 
 //REQUIRE Mongoose:
-const connectMongoDb=require("./connections/index");
+const connectMongoDb=require("./connections");
 
 //REQUIRE ROUTER:
 const userRouter=require("./routes/user");
