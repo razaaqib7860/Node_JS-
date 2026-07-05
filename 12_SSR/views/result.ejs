@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short URL Generated</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#f5f5f5;
+        }
+
+        .container{
+            width:500px;
+            background:white;
+            padding:40px;
+            border-radius:12px;
+            box-shadow:0 8px 25px rgba(0,0,0,.15);
+            text-align:center;
+        }
+
+        h1{
+            margin-bottom:25px;
+            color:#333;
+        }
+
+        p{
+            margin-bottom:10px;
+            color:#555;
+        }
+
+        .url-box{
+            display:flex;
+            margin-top:10px;
+            margin-bottom:30px;
+        }
+
+        .url-box input{
+            flex:1;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px 0 0 8px;
+            outline:none;
+            background:#fafafa;
+        }
+
+        .url-box button{
+            padding:12px 18px;
+            border:none;
+            background:#007bff;
+            color:white;
+            cursor:pointer;
+            border-radius:0 8px 8px 0;
+            transition:.3s;
+        }
+
+        .url-box button:hover{
+            background:#0056d2;
+        }
+
+        .analytics-btn{
+        display:inline-block;
+        margin-left:12px;
+        padding:12px 22px;
+        background:#6f42c1;
+        color:white;
+        text-decoration:none;
+        border-radius:8px;
+        font-weight:bold;
+        transition:.3s;
+        }
+
+        .analytics-btn:hover{
+        background:#5a32a3;
+       }
+
+        .generate-btn{
+            display:inline-block;
+            text-decoration:none;
+            padding:12px 22px;
+            background:#28a745;
+            color:white;
+            border-radius:8px;
+            transition:.3s;
+        }
+
+        .generate-btn:hover{
+            background:#1d7f34;
+        }
+
+    </style>
+
+</head>
+<body>
+<div style="text-align:center; margin-top:40px;">
+
+    <h1>🎉 Short URL Generated Successfully</h1>
+
+    <br>
+
+    <p><strong>Original URL</strong></p>
+
+    <a href="<%= originalUrl %>" target="_blank">
+        <%= originalUrl %>
+    </a>
+
+    <br><br><br>
+
+    <p><strong>Your Short URL</strong></p>
+
+    <div style="display:flex; justify-content:center; gap:10px; margin-top:10px;">
+
+        <input
+            id="shortUrl"
+            type="text"
+            readonly
+            value="http://localhost:4001/url/<%= locals.SUrl %>"
+            style="width:350px; padding:10px; font-size:16px;"
+        >
+
+        <button onclick="copyURL()" style="padding:10px 18px;">
+            Copy
+        </button>
+
+    </div>
+
+    <br><br>
+
+    <a href="/UrlShortner/track/<%= locals.SUrl %>" class="analytics-btn">
+    📊 View Analytics
+    </a>
+
+    <br><br>
+
+    <a
+        href="/UrlShortner"
+        style="
+            display:inline-block;
+            padding:12px 22px;
+            background:#28a745;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:bold;
+        "
+    >
+        Generate Another URL
+    </a>
+
+</div>
+
+<script>
+function copyURL(){
+    const input = document.getElementById("shortUrl");
+    navigator.clipboard.writeText(input.value);
+    alert("✅ URL Copied!");
+}
+</script>
+
+</body>
+</html>
+
+<!-- <body>
+
+    <h1>🎉 Short URL Generated Successfully</h1>
+
+    <p>Your original URL:</p>
+
+    <a href="<%= originalUrl %>" target="_blank">
+        <%= originalUrl %>
+    </a>
+
+    <br><br>
+
+    <p>Your Short URL:</p>
+
+    <a href="/url/<%= locals.SUrl %>" target="_blank">
+            http://localhost:4001/url/<%= locals.SUrl %>
+        </a>
+
+    <br><br>
+
+    <a href="/">Generate Another URL</a>
+
+</body> -->
