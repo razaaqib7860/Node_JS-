@@ -14,9 +14,11 @@ await Url.create({
   originalUrl,
   shortUrl
 });
+const baseUrl = `${req.protocol}://${req.get("host")}`;
 return res.render("result", { 
   SUrl: shortUrl,
-  originalUrl: originalUrl
+  originalUrl: originalUrl,
+  baseUrl,
  }); // Render the EJS template with the short URL
 // return res.status(201).json({ msg: "Short URL generated successfully", shortUrl });
 }

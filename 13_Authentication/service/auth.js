@@ -1,5 +1,6 @@
+
 const jwt=require("jsonwebtoken");
-const secret = "Url@123#";
+const secret = process.env.JWT_SECRET;
 
 function setUser(userFound){
     return jwt.sign({
