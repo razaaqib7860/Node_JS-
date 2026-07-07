@@ -1,4 +1,7 @@
+
 const User=require("../models/user");
+const {setUser , getUser }=require("../service/auth");
+const jwt=require("jsonwebtoken");
 
 async function registerUser(req,res){
     const {fullName,email,password}=req.body;
@@ -19,18 +22,23 @@ async function registerUser(req,res){
 }
 
 async function loginUser(req,res){
-        console.log(req.body);
     const {email,password}=req.body;
-    const userFound=await User.findOne({email,password});
+
     if(!email || !password){
     return res.status(400).json({
         error: "Email and Password are required"
      });
     }
+
+    const userFound=await User.findOne({email,password});
+
     if(!userFound){
         return res.status(401).json({error:"User not Found"})
     }
-    return res.render("home");
+
+    const token= setUser(userFound)
+    res.cookie("uid",token);
+    return res.redirect("/urlShortner");
 }
 
 module.exports={registerUser,loginUser};

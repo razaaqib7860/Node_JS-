@@ -6,12 +6,12 @@ const newUrlController = require("../controllers/url");
 router.post("/",newUrlController.generateShortUrl);
 
 //get
-router.get("/",newUrlController.getAllUrl);
+// router.get("/",newUrlController.getAllUrl);
 
 //get/:shortUrl
 router.get("/:shortUrl",newUrlController.getUrlByShortUrl);
 
 //anyaltics by shortUrl
-router.get("/s/:shortUrl",newUrlController.getAnalyticsByShortUrl);
+router.get("/anyaltics/:shortUrl",newUrlController.getAnalyticsByShortUrl);
 
 module.exports = router;
